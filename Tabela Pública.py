@@ -19,7 +19,7 @@ Data_Table = df.to_string()
 
 '''
 O input, para o usuario poder adicionar novas informações a tabela.
-Caso seja inserido uma string ou um int acima de 1000 ou abaixo de 0, ele irá requisitar uma nova tentativa
+Caso seja inserido uma string ou um int abaixo de 0, ele irá requisitar uma nova tentativa
 '''
 while True:
     try:
@@ -86,14 +86,14 @@ além dos cálculos.
 O processo funciona igual ao do while anterior, com a diferença que ele já vem integrado
 com o "new_row", "df.append" "print(df)"
 '''
-continuar = input('Deseja continuar? Sim ou não:')
 
 while True:
+    continuar = input('Deseja continuar? Sim ou não:').lower()
     try: 
-        if continuar == 'Sim':
+        if continuar == 'sim' or continuar == 's':
             p = int(input("Adicione algum placar:"))
         
-            if p == p > 0:
+            if p > 0:
         
                 j = (df)['Jogos'].iloc[-1] + 1
 
@@ -113,19 +113,16 @@ while True:
                 if int(maxt) > df['Máximo da Temporada'].iloc[-1]:
                     qrmax = (qrmax + 1)
 
-
                 new_row = {'Jogos':j, 'Placar': p, 'Mínimo da Temporada': mint, 'Máximo da Temporada': maxt, 'Quebra recorde mín':qrmin, 'Quebra recorde max': qrmax,}
                 df = df.append(new_row, ignore_index=True) 
 
                 print(df)
-            else:
-                raise ValueError()
-        except ValueError as e:
-            print('Valor inválido, tente novamente:', e)
 
         else:
             break
-        
+            
+    except ValueError as e:
+            print( e)
 
         
 
@@ -138,5 +135,5 @@ while True:
 #Interface para inserção dos dados;Feito
 #Interface para consulta dos dados;Feito
 #Testes Unitários;
-#Controle de versão Git;
+#Controle de versão Git;Feito
 #Documentação do código;Feito
