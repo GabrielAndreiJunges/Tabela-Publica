@@ -124,15 +124,3 @@ while True:
             print( e)
 
         
-
-
-
-              
-#Possibilidade de ser inserido novos jogos;Feito
-#Calculo de mínimo e maximo da temporada;Feito
-#Calculo da quantidade de vezes que o recorde foi quebrado;Feito
-#Interface para inserção dos dados;Feito
-#Interface para consulta dos dados;Feito
-#Testes Unitários;
-#Controle de versão Git;Feito
-#Documentação do código;Feito
