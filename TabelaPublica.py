@@ -2,8 +2,6 @@
 import pandas as pd
 from pandas import DataFrame
 
-
-
 #DATABASE (Onde ficam as informações base da tabela.)
 database = DataFrame
 database = {'Jogos':[1, 2, 3, 4], 
@@ -23,10 +21,11 @@ Caso seja inserido uma string ou um int abaixo de 0, ele irá requisitar uma nov
 '''
 while True:
     try:
-        p = int(input("Qual foi o placar?:"))
-        if p == p > 0:
+        placar = int(input("Qual foi o placar?:"))
+        if 0 <= placar <= 1000:
            break
-        else: raise ValueError('tente novamente:')
+        else: 
+            raise ValueError('tente novamente:')
     except ValueError as e:
             print('Valor inválido,', e)
             
@@ -45,12 +44,12 @@ Faz a mesma coisa com maxt, apenas invertendo
 '''
 
 mint = df['Mínimo da Temporada'].iloc[-1]
-if int(p) < df['Mínimo da Temporada'].iloc[-1]:
-    mint = p
+if int(placar) < df['Mínimo da Temporada'].iloc[-1]:
+    mint = placar
 
 maxt = df['Máximo da Temporada'].iloc[-1]
-if int(p) > df['Máximo da Temporada'].iloc[-1]:
-    maxt = p
+if int(placar) > df['Máximo da Temporada'].iloc[-1]:
+    maxt = placar
 
 
 '''    
@@ -73,7 +72,7 @@ Adiciona novas linhas com as informações dos cálculos e afins, a tabela.
 Define qual variável muda o resultado de cada coluna, depois
 assimila a nova linha ao dataframe com o código df.append
 """
-new_row = {'Jogos':j, 'Placar': p, 'Mínimo da Temporada': mint, 'Máximo da Temporada': maxt, 'Quebra recorde mín':qrmin, 'Quebra recorde max': qrmax,}
+new_row = {'Jogos':j, 'Placar': placar, 'Mínimo da Temporada': mint, 'Máximo da Temporada': maxt, 'Quebra recorde mín':qrmin, 'Quebra recorde max': qrmax,}
 df = df.append(new_row, ignore_index=True)
 
 #Coloca em prática os códigos e lê o dataframe.
@@ -91,19 +90,19 @@ while True:
     continuar = input('Deseja continuar? Sim ou não:').lower()
     try: 
         if continuar == 'sim' or continuar == 's':
-            p = int(input("Adicione algum placar:"))
+            placar = int(input("Adicione algum placar:"))
         
-            if p > 0:
+            if 0 <= placar <= 1000:
         
                 j = (df)['Jogos'].iloc[-1] + 1
 
                 mint = df['Mínimo da Temporada'].iloc[-1]
-                if int(p) < df['Mínimo da Temporada'].iloc[-1]:
-                    mint = p
+                if int(placar) < df['Mínimo da Temporada'].iloc[-1]:
+                    mint = placar
 
                 maxt = df['Máximo da Temporada'].iloc[-1]
-                if int(p) > df['Máximo da Temporada'].iloc[-1]:
-                    maxt = p
+                if int(placar) > df['Máximo da Temporada'].iloc[-1]:
+                    maxt = placar
         
                 qrmin = df['Quebra recorde mín'].iloc[-1]
                 if int(mint) < df['Mínimo da Temporada'].iloc[-1]:
@@ -113,7 +112,7 @@ while True:
                 if int(maxt) > df['Máximo da Temporada'].iloc[-1]:
                     qrmax = (qrmax + 1)
 
-                new_row = {'Jogos':j, 'Placar': p, 'Mínimo da Temporada': mint, 'Máximo da Temporada': maxt, 'Quebra recorde mín':qrmin, 'Quebra recorde max': qrmax,}
+                new_row = {'Jogos':j, 'Placar': placar, 'Mínimo da Temporada': mint, 'Máximo da Temporada': maxt, 'Quebra recorde mín':qrmin, 'Quebra recorde max': qrmax,}
                 df = df.append(new_row, ignore_index=True) 
 
                 print(df)
