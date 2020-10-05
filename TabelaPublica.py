@@ -1,7 +1,6 @@
 #frameworks usados
 import pandas as pd
 from pandas import DataFrame
-from pandas.core.algorithms import value_counts
 
 #DATABASE (Onde ficam as informações base da tabela.)
 database = DataFrame
