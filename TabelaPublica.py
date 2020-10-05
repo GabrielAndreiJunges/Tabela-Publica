@@ -1,6 +1,7 @@
 #frameworks usados
 import pandas as pd
 from pandas import DataFrame
+from pandas.core.algorithms import value_counts
 
 #DATABASE (Onde ficam as informações base da tabela.)
 database = DataFrame
@@ -116,6 +117,9 @@ while True:
                 df = df.append(new_row, ignore_index=True) 
 
                 print(df)
+                
+            elif not 0 <= placar <= 1000:
+                raise ValueError ('Valor inválido, tente novamente:')
 
         else:
             break
